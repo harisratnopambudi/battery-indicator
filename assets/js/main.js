@@ -8,29 +8,29 @@ function initBattery(){
 
     navigator.getBattery().then((batt) =>{  
         updateBattery = () =>{
-            /* 1. We update the number level of the battery */
+            /* 1. Ini persentase total baterai */
             let level = Math.floor(batt.level * 100)
             batteryPercentage.innerHTML = level+ '%'
 
-            /* 2. We update the backgroundd level of the battery */
+            /* 2. Background level dari total persentase baterai */
             batteryLiquid.style.height = `${parseInt(batt.level * 100)}%`
 
-            /* 3. We validate full battery, low battery and if it is charging or not */
-            if(level == 100){ /*We validate if the battery is full */
+            /* 3. Ini untuk memvalidasi baterai penuh, baterai lemah, dan apakah baterai sedang dalam proses pengisian atau tidak. */
+            if(level == 100){ /*Ini proses validasi jika baterai sedang penuh. */
                 batteryStatus.innerHTML = `Full battery <i class="ri-battery-2-fill green-color"></i>`
                 batteryLiquid.style.height = '100%'  /* To hide the ellipse */   
             }
-            else if(level <= 20 &! batt.charging){ /* We validate if the battery is low */
+            else if(level <= 20 &! batt.charging){ /* Ini proses validasi jika baterai sedang lemah. */
                 batteryStatus.innerHTML = `Low battery <i class="ri-plug-line animated-red"></i>`
             }
-            else if(batt.charging){ /* We validate if the battery is charging */
+            else if(batt.charging){ /* Ini proses validasi jika baterai sedang dalam pengisian */
                 batteryStatus.innerHTML = `Charging... <i class="ri-flashlight-line animated-green"></i>`
             }
-            else{ /* If it's not loading, don't show anything. */
+            else{ /* Jika sedang tidak mengisi atau status apapun kecuali lemah, jangan tampilkan apapun. */
                 batteryStatus.innerHTML = ''
             }
 
-            /* 4. We change the colors of the battery and remove the other colors */
+            /* 4. Ini untuk proses berubah warna baterai sesuai persentase. */
             if(level <= 20){
                 batteryLiquid.classList.add('gradient-color-red')
                 batteryLiquid.classList.remove('gradient-color-orange','gradient-color-yellow','gradient-color-green')
