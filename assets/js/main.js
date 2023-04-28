@@ -18,15 +18,15 @@ function initBattery(){
             /* 3. We validate full battery, low battery and if it is charging or not */
             if(level == 100){ /*We validate if the battery is full */
                 batteryStatus.innerHTML = `Full battery <i class="ri-battery-2-fill green-color"></i>`
-                batteryLiquid.style.height = '103%'  /* To hide the ellipse */   
+                batteryLiquid.style.height = '100%'  /* To hide the ellipse */   
             }
             else if(level <= 20 &! batt.charging){ /* We validate if the battery is low */
                 batteryStatus.innerHTML = `Low battery <i class="ri-plug-line animated-red"></i>`
             }
             else if(batt.charging){ /* We validate if the battery is charging */
-                batteryStatus.innerHTML = `Charging...<i class="ri-flashlight-line animated-green"></i>`
+                batteryStatus.innerHTML = `Charging... <i class="ri-flashlight-line animated-green"></i>`
             }
-            else if(batt.charging){ /* If it's not loading, don't show anything. */
+            else{ /* If it's not loading, don't show anything. */
                 batteryStatus.innerHTML = ''
             }
 
