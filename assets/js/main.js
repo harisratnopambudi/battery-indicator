@@ -6,12 +6,12 @@ function initBattery(){
           batteryStatus = document.querySelector('.battery__status'),
           batteryPercentage = document.querySelector('.battery__percentage')
 
-    navigator.getBattery().then((batt) =>{
+    navigator.getBattery().then((batt) =>{  
         updateBattery = () =>{
             /* 1. We update the number level of the battery */
             let level = Math.floor(batt.level * 100)
             batteryPercentage.innerHTML = level+ '%'
-            
+
             /* 2. We update the backgroundd level of the battery */
             batteryLiquid.style.height = `${parseInt(batt.levvel * 100)}%`
 
@@ -21,12 +21,12 @@ function initBattery(){
                 batteryLiquid.style.height = '103%'  /* To hide the ellipse */   
             }
             else if(level <= 20 &! batt.charging){ /* We validate if the battery is low */
-                batteryStatus.innerHTML = `Low battery <i class=ri-plug-line animated-red"></i>`
+                batteryStatus.innerHTML = `Low battery <i class="ri-plug-line animated-red"></i>`
             }
             else if(batt.charging){ /* We validate if the battery is charging */
                 batteryStatus.innerHTML = `Charging...<i class="ri-flashlight-line animated-green"></i>`
             }
-            else if{ /* If it's not loading, don't show anything. */
+            else if(batt.charging){ /* If it's not loading, don't show anything. */
                 batteryStatus.innerHTML = ''
             }
 
@@ -53,5 +53,5 @@ function initBattery(){
         /* 5. Battery status events */
         batt.addEventListener('chargingchange',() => {updateBattery()})
         batt.addEventListener('levelchange',() => {updateBattery()})
-    })
+})
 }
