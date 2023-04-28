@@ -128,7 +128,7 @@ body {
   content: '';
   position: absolute;
   height: 8px;
-  background: var(--graident-color-red);
+  background: var(--gradient-color-red);
   box-shadow: inset 0 -3px 6px hsla(0, 0%, 0%, .2);
   left: 0;
   right: 0;
@@ -183,22 +183,22 @@ body {
 }
 
 /* Liquid battery with gradient color */
-.gradient-color-red;
+.gradient-color-red,
 .gradient-color-red::after{
   background: var(--gradient-color-red);
 }
 
-.gradient-color-orange;
+.gradient-color-orange,
 .gradient-color-orange::after{
   background: var(--gradient-color-orange);
 }
 
-.gradient-color-yellow;
+.gradient-color-yellow,
 .gradient-color-yellow::after{
   background: var(--gradient-color-yellow);
 }
 
-.gradient-color-green;
+.gradient-color-green,
 .gradient-color-green::after{
   background: var(--gradient-color-green);
 }
